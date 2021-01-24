@@ -111,9 +111,9 @@ class Books extends React.Component{
         let sortedResults = [];
         if(this.state.sortEnable){
             if(this.state.orderBy === 'asc'){
-                sortedResults = results.sort((o1,o2) => o1.average_rating - o2.average_rating);
+                sortedResults = results.sort((o1,o2) => parseFloat(o1.avgRating) - parseFloat(o2.avgRating));
             }else{
-                sortedResults = results.sort((o1,o2) => o2.average_rating - o1.average_rating);
+                sortedResults = results.sort((o1,o2) => parseFloat(o2.avgRating) - parseFloat(o1.avgRating));
             }
             results = sortedResults;
         }
@@ -147,7 +147,7 @@ class Books extends React.Component{
                                     <div className="card h-100">
                                         <a href="">
                                             {images.length > 0 &&
-                                                <img className="card-img-top" src={images[index].Image} 
+                                                <img className="card-img-top" src={elm.image} 
                                                     alt="Book Card" width="90" height="150"/>    
                                             }
                                         </a>
@@ -157,8 +157,8 @@ class Books extends React.Component{
                                             </h6>
                                             <h5>${elm.price}</h5>
                                             <p className="card-text">{elm.authors}</p>
-                                            <p className="card-text">Average Rating : {elm.average_rating}</p>
-                                            <a href="" onClick={() => this.addingToCart(elm, images[index].Image)}> Add to Cart</a>
+                                            <p className="card-text">Average Rating : {elm.avgRating}</p>
+                                            <a href="" onClick={() => this.addingToCart(elm, elm.image)}> Add to Cart</a>
                                         </div>
                                     </div>
                                 </div>

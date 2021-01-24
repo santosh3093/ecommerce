@@ -9,7 +9,7 @@ class BooksList extends React.Component{
         }
     }
     componentWillMount(){
-        fetch("https://s3-ap-southeast-1.amazonaws.com/he-public-data/books8f8fe52.json",{
+        fetch("http://localhost:8080/getBookDetails",{
             method:'GET',
             headers:{
                 'Content-Type':'application/json; charset=UTF-8'
@@ -19,6 +19,16 @@ class BooksList extends React.Component{
                 this.setState({results:data});
             }
         });
+        {/*fetch("https://s3-ap-southeast-1.amazonaws.com/he-public-data/books8f8fe52.json",{
+            method:'GET',
+            headers:{
+                'Content-Type':'application/json; charset=UTF-8'
+            }
+        }).then(response => response.json()).then((data) => {
+            if(data != null){
+                this.setState({results:data});
+            }
+        });*/}
     }
     render(){
         return(
