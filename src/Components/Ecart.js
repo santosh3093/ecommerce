@@ -39,7 +39,7 @@ class Ecart extends React.Component{
                             </h4>
                             {
                                 elems.map(function(elm,index){
-                                    price = price + elm.price;
+                                    price = price + parseFloat(elm.price);
                                     return(
                                         <p>
                                             <a href="#">{elm.title} <span className="price">${elm.price}</span></a>

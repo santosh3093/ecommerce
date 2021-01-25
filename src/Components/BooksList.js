@@ -9,7 +9,7 @@ class BooksList extends React.Component{
         }
     }
     componentWillMount(){
-        fetch("http://localhost:8080/getBookDetails",{
+        fetch("http://bookpaymentgateway-env.eba-gmzkknsp.us-east-2.elasticbeanstalk.com/getBookDetails",{
             method:'GET',
             headers:{
                 'Content-Type':'application/json; charset=UTF-8'
